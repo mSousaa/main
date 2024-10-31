@@ -49,6 +49,8 @@ const Orders = Connection.define("Orders", {
         type:DataTypes.DATEONLY,
         allowNull: false
     }
+},{
+    tableName: "pedido"
 })
 
 module.exports = Orders
