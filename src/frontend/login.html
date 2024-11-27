@@ -38,7 +38,6 @@
             
             const login = document.querySelector('#login').value;
             const password = document.querySelector('#password').value
-            console.log(login, password)
             try {
                 const response = await axios.post('http://localhost:3000/login', {
                     login: login,

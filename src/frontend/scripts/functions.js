@@ -52,7 +52,15 @@ async function salvar() {
     const senha = document.querySelector("#senha").value
 
     try {
-        await api.post('usuarios', dados);
+        await api.post('usuarios', {
+            nome,
+            email, 
+            data_nascimento: dataNascimento,
+            genero,
+            cpf,
+            tipo_usuario_id: tipo_usuario,
+            senha
+        });
         listarDadosUsuarios();
     } catch (error) {
         console.error('Erro ao salvar usuário:', error);
