@@ -1,6 +1,4 @@
 const express = require('express');
-const UserRoutes = require('./userRoutes');
-const ProductRoutes = require("./produtosRoutes");
 const authMiddleware = require("../middlewares/authmiddlewares");
 const UserController = require('../controllers/UserController');
 const ProductController = require("../controllers/ProductsController")
