@@ -34,6 +34,10 @@ const UserModel = Connection.define(
                 model: TypeUserModel,
                 key: 'id'
             }
+        },
+        senha: {
+            type: DataTypes.STRING,
+            allowNull: false,
         }
     },
     {

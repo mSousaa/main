@@ -33,6 +33,7 @@ const createUser = async (req, res) => {
 };
 
 
+
 const updateUser = async (req, res) => {
   const { id } = req.params; 
   try {
