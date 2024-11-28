@@ -15,4 +15,3 @@ const createTypeUser= async (req, res) => {
   module.exports = {
     createTypeUser
   }
-  

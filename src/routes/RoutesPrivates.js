@@ -10,6 +10,7 @@ RoutesPrivates.use(authMiddleware);
 RoutesPrivates.get('/usuarios', UserController.getAll);
 RoutesPrivates.post("/usuarios", UserController.createUser);
 RoutesPrivates.use('/produtos', ProductController.createProduct);
-// Só adicionar as outras rotas de acordo com as páginas que forem criadas
+RoutesPrivates.delete("/usuarios/:id", UserController.deleteUser)
+RoutesPrivates.put("/usuarios/:id", UserController.updateUser)
 
 module.exports = RoutesPrivates;

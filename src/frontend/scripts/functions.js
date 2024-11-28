@@ -42,6 +42,34 @@ async function excluir(id) {
     }
 }
 
+async function editar(id) {
+    const nome = document.querySelector('#nome').value;
+    const email = document.querySelector('#email').value;
+    const dataNascimento = document.querySelector('#dataNascimento').value;
+    const genero = document.querySelector('#genero').value;
+    const cpf = document.querySelector('#cpf').value;
+    const tipo_usuario = document.querySelector('#tipo_usuario').value;
+    const senha = document.querySelector('#senha').value;
+
+    try {
+        await api.put(`usuarios/${id}`, {
+            nome,
+            email,
+            data_nascimento: dataNascimento,
+            genero,
+            cpf,
+            tipo_usuario_id: tipo_usuario,
+            senha,
+        });
+        alert('Usuário editado com sucesso!');
+        listarDadosUsuarios(); 
+    } catch (error) {
+        console.error('Erro ao editar usuário:', error);
+        alert('Erro ao editar usuário. Verifique os dados e tente novamente.');
+    }
+}
+
+
 async function salvar() {
     const nome = document.querySelector('#nome').value;
     const email = document.querySelector('#email').value;
@@ -69,3 +97,4 @@ async function salvar() {
 
 document.getElementById('salvarUsuario').addEventListener('click', salvar);
 document.addEventListener('DOMContentLoaded', listarDadosUsuarios);
+document.addEventListener('modalEditarUsuario').addEventListener('click', editar(id));
