@@ -8,6 +8,7 @@ const RoutesPrivates = express.Router();
 RoutesPrivates.use(authMiddleware);
 
 RoutesPrivates.get('/usuarios', UserController.getAll);
+RoutesPrivates.get('/usuarios/:id', UserController.getUserById);
 RoutesPrivates.post("/usuarios", UserController.createUser);
 RoutesPrivates.use('/produtos', ProductController.createProduct);
 RoutesPrivates.delete("/usuarios/:id", UserController.deleteUser)
