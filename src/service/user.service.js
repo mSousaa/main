@@ -4,8 +4,13 @@ const create = (body) => UserModel.create(body);
 
 const getAll = () => UserModel.findAll();
 
-const getUserById = (id) => UserModel.findByPk(id)
-
+const getUserById = async (id) => {
+    return await UserModel.findOne({
+      where: { id },
+      
+    });
+  };
+  
 const updateUser = (body, id) => UserModel.update(body, { where: { id } });
 
 const deleteUser = (id) => UserModel.destroy({ where: { id } });
