@@ -1,19 +1,20 @@
 const userService = require("../service/user.service")
 
 const validId = (req, res, next) => {
-    const { id } = req.params;
+    try{const { id } = req.params;
 
     if (!Number.isInteger(Number(id)) || Number(id) <= 0) {
       return res.status(400).json({ message: "ID inválido" });
     }
   
-    next();
+    next();}
+    catch(error){
+      res.status(500).send({message: error.message})
+    }
 };
 
 const validUser = async (req, res, next) => {
-    const { id } = req.params;
-
-    try {
+  try {const { id } = req.params;
       const user = await userService.getUserById(id);
       if (!user) {
         return res.status(404).json({ message: 'Usuário não encontrado!' });
